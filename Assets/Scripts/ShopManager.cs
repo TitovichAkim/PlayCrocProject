@@ -19,9 +19,9 @@ public class ShopManager : MonoBehaviour
         set
         {
             _coins = value;
-
-            numbersOfCoinsFloatText.text = _coins.ToString("F3");
-            numbersOfCoinsstringText.text = "";
+            NumberFormatter.FormatAndRedraw(_coins, numbersOfCoinsFloatText, numbersOfCoinsstringText);
+            //numbersOfCoinsFloatText.text = _coins.ToString("F3");
+            //numbersOfCoinsstringText.text = "";
             PlayerPrefs.SetFloat("Coin", _coins);
             _RedrawUpgradeButtons();
         }
