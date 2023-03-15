@@ -6,6 +6,8 @@ public class ShopManager : MonoBehaviour
     public Text numbersOfCoinsFloatText;
     public Text numbersOfCoinsstringText;
 
+    public ProductPanelManager[] productPanelsArray;
+
     private float _coins;
 
     public float coins
@@ -18,14 +20,25 @@ public class ShopManager : MonoBehaviour
         {
             _coins = value;
 
-            numbersOfCoinsFloatText.text = _coins.ToString();
+            numbersOfCoinsFloatText.text = _coins.ToString("F3");
             numbersOfCoinsstringText.text = "";
             PlayerPrefs.SetFloat("Coin", _coins);
+            _RedrawUpgradeButtons();
         }
     }
 
     public void Start ()
     {
         coins = PlayerPrefs.GetFloat("Coin");
+        _RedrawUpgradeButtons();
+    }
+
+    private void _RedrawUpgradeButtons ()
+    {
+        foreach(ProductPanelManager prodMan in productPanelsArray)
+        {
+            prodMan.RedrawUpgradeButton();
+        }
+
     }
 }

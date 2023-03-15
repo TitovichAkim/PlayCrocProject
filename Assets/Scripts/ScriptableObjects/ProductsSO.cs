@@ -6,7 +6,8 @@ public class ProductsSO : ScriptableObject
     public Sprite icon;
 
     public string productName;
-    public float productSaleCost;
-    public float productUpCost;
-    public float productionTime;
+    public float initialCost;
+    public float costMultiplier;
+    public float initialTime;
+    public int initialRevenue;
 }

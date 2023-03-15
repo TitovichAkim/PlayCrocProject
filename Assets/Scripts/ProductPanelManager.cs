@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class ProductPanelManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ProductPanelManager : MonoBehaviour
     public Image progressBar;
 
     public Button sellProductButton;
+    public Button upgradeButton;
 
     public Text productLevelText;
     public Text coinsPerSecondText;
@@ -22,21 +24,23 @@ public class ProductPanelManager : MonoBehaviour
 
     public int manager;
 
-    private int _productLevel;
+    private int _productInvestments;
+    private float _productRevenue;
+    private float _upgradeCost;
 
     private float _timerStart;
     private bool _timer;
     
-    public int productLevel
+    public int productInvestments
     {
         get
         {
-            return (_productLevel);
+            return (_productInvestments);
         }
         set
         {
-            _productLevel = value;
-            PlayerPrefs.SetInt(productSO.productName, _productLevel);
+            _productInvestments = value;
+            PlayerPrefs.SetInt($"{productSO.productName}productInvestments", _productInvestments);
             RedrawThePanel();
         }
     }
@@ -44,19 +48,29 @@ public class ProductPanelManager : MonoBehaviour
     private void Start ()
     {
         productIcon.sprite = productSO.icon;
-        if (PlayerPrefs.GetInt(productSO.productName) != 0)
+        manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
+        if (PlayerPrefs.GetInt($"{productSO.productName}productInvestments") == 0 && productSO.productName == "TarotCards")
         {
-            productLevel = PlayerPrefs.GetInt(productSO.productName);
-            manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
+            productInvestments = 1;
         }
+        else
+        {
+            productInvestments = PlayerPrefs.GetInt($"{productSO.productName}productInvestments");
+            if(productInvestments == 0)
+            {
+                productBackground.enabled = false;
+                sellProductButton.interactable = false;
+            }
+        }
+        RedrawUpgradeButton();
     }
  
     private void Update ()
     {
         if (_timer)
         {
-            float timer = productSO.productionTime - Mathf.FloorToInt((Time.time - _timerStart) % 60);
-            progressBar.fillAmount = (Time.time - _timerStart) / productSO.productionTime;
+            float timer = productSO.initialTime - Mathf.FloorToInt((Time.time - _timerStart) % 60);
+            progressBar.fillAmount = (Time.time - _timerStart) / productSO.initialTime;
             timerText.text = $"{timer} сек.";
         }
     }
@@ -76,38 +90,58 @@ public class ProductPanelManager : MonoBehaviour
         {
             _timerStart = Time.time;
             _timer = true;
-            sellProductButton.interactable = false;
             productBackground.enabled = false;
-            yield return new WaitForSeconds(productSO.productionTime);
+            sellProductButton.interactable = false;
+            yield return new WaitForSeconds(productSO.initialTime);
             _SellProduct();
         } while(manager == 1);
     }
 
     private void _SellProduct ()
     {
-        shopManager.coins += _productLevel * productSO.productSaleCost;
+        shopManager.coins += _productRevenue;
         _timer = false;
-        sellProductButton.interactable = true;
         productBackground.enabled = true;
-        timerText.text = $"{productSO.productionTime} сек.";
+        sellProductButton.interactable = true;
+        timerText.text = $"{productSO.initialTime} сек.";
     }
 
     public void ProductLevelUp ()
     {
-        if (shopManager.coins >= _productLevel * productSO.productUpCost)
+        if (shopManager.coins >= _upgradeCost)
         {
-            shopManager.coins -= _productLevel * productSO.productUpCost;
-            _productLevel++;
+            if (productInvestments == 0)
+            {
+                productBackground.enabled = true;
+                sellProductButton.interactable = true;
+            }
+            shopManager.coins -= _upgradeCost;
+            productInvestments++;
             RedrawThePanel();
         }
     }
 
     private void RedrawThePanel ()
     {
-        productLevelText.text = productLevel.ToString();
-        string coinsPerSecond = ((_productLevel * productSO.productSaleCost)/ productSO.productionTime).ToString("F2");
-        coinsPerSecondText.text = $"{coinsPerSecond}/сек.";
-        costFloatText.text = $"{_productLevel * productSO.productUpCost}";
+        productLevelText.text = productInvestments.ToString();
+
+        _productRevenue = _productInvestments * productSO.initialRevenue;
+        coinsPerSecondText.text = _productRevenue.ToString("F3");
+
+        _upgradeCost = productSO.initialCost * Mathf.Pow(productSO.costMultiplier, productInvestments);
+        costFloatText.text = _upgradeCost.ToString("F3");
         costStringText.text = "";
+    }
+
+    public void RedrawUpgradeButton ()
+    {
+        if (shopManager.coins >= _upgradeCost) 
+        {
+            upgradeButton.interactable = true;
+        } 
+        else
+        {
+            upgradeButton.interactable = false;
+        }
     }
 }
