@@ -48,7 +48,7 @@ public class ProductPanelManager : MonoBehaviour
     private void Start ()
     {
         productIcon.sprite = productSO.icon;
-        manager = 1/*PlayerPrefs.GetInt($"{productSO.productName}.Manager")*/;
+        manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
         if (PlayerPrefs.GetInt($"{productSO.productName}productInvestments") == 0 && productSO.productName == "TarotCards")
         {
             productInvestments = 1;
@@ -124,10 +124,10 @@ public class ProductPanelManager : MonoBehaviour
     private void RedrawThePanel ()
     {
         productLevelText.text = productInvestments.ToString();
+        timerText.text = $"{productSO.initialTime} сек.";
 
         _productRevenue = _productInvestments * productSO.initialRevenue;
         NumberFormatter.FormatAndRedraw(_productRevenue, coinsPerSecondText);
-        //coinsPerSecondText.text = _productRevenue.ToString("F3");
 
         _upgradeCost = productSO.initialCost * Mathf.Pow(productSO.costMultiplier, productInvestments);
         NumberFormatter.FormatAndRedraw(_upgradeCost, costFloatText, costStringText);
