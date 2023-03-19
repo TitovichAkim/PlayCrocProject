@@ -14,6 +14,7 @@ public class ProductPanelManager : MonoBehaviour
 
     public Button sellProductButton;
     public Button upgradeButton;
+    public Button managerButton;
 
     public Text productLevelText;
     public Text coinsPerSecondText;
@@ -25,6 +26,7 @@ public class ProductPanelManager : MonoBehaviour
     public int manager;
 
     private int _productInvestments;
+    private int _upgradesNumber = 1;
     private float _productRevenue;
     private float _upgradeCost;
 
@@ -44,12 +46,39 @@ public class ProductPanelManager : MonoBehaviour
             RedrawThePanel();
         }
     }
+    public int upgradesNumber
+    {
+        get
+        {
+            return(_upgradesNumber);
+        }
+        set
+        {
+            _upgradesNumber = value;
+            buyNumberText.text = $"Купить\nx{_upgradesNumber}";
+            RedrawThePanel();
+        }
+    }
 
     private void Start ()
     {
         productIcon.sprite = productSO.icon;
         manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
-        if (PlayerPrefs.GetInt($"{productSO.productName}productInvestments") == 0 && productSO.productName == "TarotCards")
+
+        // надо будет перенести в другое место
+        if (manager == 1)
+        {
+            StartSellProduct();
+            managerButton.image.color = Color.green;
+        }
+        else
+        {
+            managerButton.image.color = Color.red;
+        }
+        // надо будет перенести в другое место
+
+
+        if(PlayerPrefs.GetInt($"{productSO.productName}productInvestments") == 0 && productSO.productName == "TarotCards")
         {
             productInvestments = 1;
         }
@@ -77,7 +106,21 @@ public class ProductPanelManager : MonoBehaviour
 
     public void HireManager ()
     {
-        manager = 1;
+
+        // надо будет перенести в другое место
+        if(manager == 1)
+        {
+            manager = 0;
+            managerButton.image.color = Color.red;
+        }
+        else
+        {
+            manager = 1;
+            StartSellProduct();
+            managerButton.image.color = Color.green;
+        }
+        // надо будет перенести в другое место
+
         PlayerPrefs.SetInt($"{productSO.productName}.Manager", manager);
     }
     public void StartSellProduct ()
@@ -116,7 +159,7 @@ public class ProductPanelManager : MonoBehaviour
                 sellProductButton.interactable = true;
             }
             shopManager.coins -= _upgradeCost;
-            productInvestments++;
+            productInvestments += _upgradesNumber;
             RedrawThePanel();
         }
     }
@@ -127,10 +170,17 @@ public class ProductPanelManager : MonoBehaviour
         timerText.text = $"{productSO.initialTime} сек.";
 
         _productRevenue = _productInvestments * productSO.initialRevenue;
-        NumberFormatter.FormatAndRedraw(_productRevenue, coinsPerSecondText);
 
-        _upgradeCost = productSO.initialCost * Mathf.Pow(productSO.costMultiplier, productInvestments);
+
+        float totalCost = 0;
+
+        for (int i = 0; i < _upgradesNumber; i++)
+        {
+            totalCost += productSO.initialCost * Mathf.Pow(productSO.costMultiplier, productInvestments + i);
+        }
+        _upgradeCost = totalCost;
         NumberFormatter.FormatAndRedraw(_upgradeCost, costFloatText, costStringText);
+        NumberFormatter.FormatAndRedraw(_productRevenue, coinsPerSecondText);
     }
 
     public void RedrawUpgradeButton ()
