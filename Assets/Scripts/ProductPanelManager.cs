@@ -162,16 +162,13 @@ public class ProductPanelManager : MonoBehaviour
     {
         if (shopManager.coins >= _upgradeCost)
         {
-            Debug.Log(1);
             if (productInvestments == 0)
             {
-                Debug.Log(2);
                 productBackground.enabled = true;
                 sellProductButton.interactable = true;
 
                 if(manager == 1)
                 {
-                    Debug.Log(3);
                     StartSellProduct();
                 }
             }
