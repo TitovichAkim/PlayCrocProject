@@ -91,6 +91,12 @@ public class ProductPanelManager : MonoBehaviour
                 sellProductButton.interactable = false;
             }
         }
+
+        if(manager == 1 && productInvestments > 0)
+        {
+            StartSellProduct();
+        }
+
         RedrawUpgradeButton();
     }
  
@@ -129,15 +135,18 @@ public class ProductPanelManager : MonoBehaviour
     }
     public IEnumerator SellProduct ()
     {
-        do
+        if (productInvestments > 0)
         {
-            _timerStart = Time.time;
-            _timer = true;
-            productBackground.enabled = false;
-            sellProductButton.interactable = false;
-            yield return new WaitForSeconds(productSO.initialTime);
-            _SellProduct();
-        } while(manager == 1);
+            do
+            {
+                _timerStart = Time.time;
+                _timer = true;
+                productBackground.enabled = false;
+                sellProductButton.interactable = false;
+                yield return new WaitForSeconds(productSO.initialTime);
+                _SellProduct();
+            } while(manager == 1);
+        }
     }
 
     private void _SellProduct ()
@@ -153,10 +162,18 @@ public class ProductPanelManager : MonoBehaviour
     {
         if (shopManager.coins >= _upgradeCost)
         {
+            Debug.Log(1);
             if (productInvestments == 0)
             {
+                Debug.Log(2);
                 productBackground.enabled = true;
                 sellProductButton.interactable = true;
+
+                if(manager == 1)
+                {
+                    Debug.Log(3);
+                    StartSellProduct();
+                }
             }
             shopManager.coins -= _upgradeCost;
             productInvestments += _upgradesNumber;
