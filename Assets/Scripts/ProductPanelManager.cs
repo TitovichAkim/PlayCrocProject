@@ -11,6 +11,7 @@ public class ProductPanelManager : MonoBehaviour
     public Image productIcon;
     public Image productBackground;
     public Image progressBar;
+    public GameObject cardBackground;
 
     public Button sellProductButton;
     public Button upgradeButton;
@@ -63,6 +64,7 @@ public class ProductPanelManager : MonoBehaviour
     private void Start ()
     {
         productIcon.sprite = productSO.icon;
+        cardBackground.GetComponent<Image>().sprite = productSO.cardsBackground;
         manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
 
         // надо будет перенести в другое место
