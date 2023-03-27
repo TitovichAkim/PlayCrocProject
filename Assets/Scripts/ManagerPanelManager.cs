@@ -10,6 +10,23 @@ public class ManagerPanelManager : MonoBehaviour
     public Text managersDescriptionText;
     public Button buyButton;
 
+    private int _managerState;
+
+    public int managerState
+    {
+        get
+        {
+            return (_managerState);
+        }
+        set
+        {
+            _managerState = value;
+            PlayerPrefs.SetInt($"{managerSO.managersName}.Manager", managerState);
+            ActivateManager();
+            //_UpdateManagersStateArray(this);
+        }
+    }
+
     public void Start ()
     {
         managersIconImage.sprite = managerSO.managersIcon;
@@ -17,7 +34,8 @@ public class ManagerPanelManager : MonoBehaviour
             $"\nАвтоматизирует продажу {managerSO.managersName} " +
             $"\n{managerSO.managersCost} $";
 
-        RedrawThePanel();
+        managerState = PlayerPrefs.GetInt($"{managerSO.managersName}.Manager");
+        BuyManager();
     }
     public void RedrawThePanel ()
     {
@@ -28,6 +46,37 @@ public class ManagerPanelManager : MonoBehaviour
         else
         {
             buyButton.interactable = false;
+        }
+    }
+
+    public void BuyManager ()
+    {
+        if (managerState == 0)
+        {
+            if(shopManager.coins >= managerSO.managersCost)
+            {
+                shopManager.coins -= managerSO.managersCost;
+                managerState = 1;
+                ActivateManager();
+            }
+        }
+    }
+    public void ActivateManager ()
+    {
+        if (managerState == 1)
+        {
+            this.gameObject.SetActive(false);
+            _UpdateManagersStateArray(this);
+        }
+
+    }
+
+    private void _UpdateManagersStateArray (ManagerPanelManager panelManager)
+    {
+        for(int i = 0; i < shopManager.managerPanelsArray.Length; i++)
+        {
+            if (shopManager.managerPanelsArray[i] == panelManager)
+            shopManager.productPanelsArray[i].manager = managerState;
         }
     }
 }

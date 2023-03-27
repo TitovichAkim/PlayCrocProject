@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e69cd4b20f167bf4f8a1116367823d9d, type: 3}
-  m_Name: 0TarotCardsManager
+  m_Name: 1BallOfYarnManager
   m_EditorClassIdentifier: 
-  managersIcon: {fileID: 21300000, guid: 1173c026e43a0074782b6431d98e5a7c, type: 3}
-  managersName: "\u041C\u0410\u041D\u0410\u0413\u0415\u0420 \u041A\u0410\u0420\u0422"
-  managersCost: 1000
+  managersIcon: {fileID: 21300000, guid: 44a93c40b70dacc418c52d6e8044a981, type: 3}
+  managersName: "\u041C\u0410\u041D\u0410\u0413\u0415\u0420 \u041A\u041B\u0423\u0411\u041A\u041E\u0412"
+  managersCost: 15000

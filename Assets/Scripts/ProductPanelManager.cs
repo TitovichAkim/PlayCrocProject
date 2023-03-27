@@ -65,7 +65,6 @@ public class ProductPanelManager : MonoBehaviour
     {
         productIcon.sprite = productSO.icon;
         cardBackground.GetComponent<Image>().sprite = productSO.cardsBackground;
-        manager = PlayerPrefs.GetInt($"{productSO.productName}.Manager");
 
         // надо будет перенести в другое место
         if (manager == 1)
@@ -110,26 +109,6 @@ public class ProductPanelManager : MonoBehaviour
             progressBar.fillAmount = (Time.time - _timerStart) / productSO.initialTime;
             timerText.text = $"{timer} сек.";
         }
-    }
-
-    public void HireManager ()
-    {
-
-        // надо будет перенести в другое место
-        if(manager == 1)
-        {
-            manager = 0;
-            managerButton.image.color = Color.red;
-        }
-        else
-        {
-            manager = 1;
-            StartSellProduct();
-            managerButton.image.color = Color.green;
-        }
-        // надо будет перенести в другое место
-
-        PlayerPrefs.SetInt($"{productSO.productName}.Manager", manager);
     }
     public void StartSellProduct ()
     {
