@@ -40,8 +40,6 @@ public class ShopManager : MonoBehaviour
         set
         {
             _managersStatesArray = value;
-            Debug.Log("„то-то случилось");
-            _SaveManagersStates();
 
         }
     }
@@ -67,6 +65,19 @@ public class ShopManager : MonoBehaviour
             prodMan.upgradesNumber = _upgradeNumbers[_upgradeIndex];
         }
     }
+
+    public void SaveManagersStates ()
+    {
+        for(int i = 0; i < managersStatesArray.Length; i++)
+        {
+            int state = 0;
+            if(managersStatesArray[i])
+            {
+                state = 1;
+            }
+            PlayerPrefs.SetInt($"{managerPanelsArray[i].managerSO.managersName}.Manager", state);
+        }
+    }
     private void _RedrawUpgradeButtons ()
     {
         foreach(ProductPanelManager prodMan in productPanelsArray)
@@ -79,24 +90,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private void _SaveManagersStates ()
-    {
-        for(int i = 0; i < managersStatesArray.Length; i++)
-        {
-            int state = 0;
-            if (managersStatesArray[i])
-            {
-                state = 1;
-                Debug.Log("—охран€ю в €чейку " + i);
-                if (i < productPanelsArray.Length)
-                {
-                    productPanelsArray[i].manager = true;
-                }
-            }
-            PlayerPrefs.SetInt($"{managerPanelsArray[i].managerSO.managersName}.Manager", state);
-        }
-    }
-
     private void _LoadManagersState ()
     {
         for (int i=0; i < managersStatesArray.Length; i++)
@@ -105,6 +98,10 @@ public class ShopManager : MonoBehaviour
             if (state == 1 && i < managerPanelsArray.Length)
             {
                 managerPanelsArray[i].managerState = true;
+                if(i < productPanelsArray.Length)
+                {
+                    productPanelsArray[i].manager = true;
+                }
             }
         }
     }

@@ -53,7 +53,7 @@ public class ManagerPanelManager : MonoBehaviour
             {
                 shopManager.coins -= managerSO.managersCost;
                 managerState = true;
-                ActivateManager();
+                shopManager.SaveManagersStates();
             }
         }
     }
@@ -72,8 +72,8 @@ public class ManagerPanelManager : MonoBehaviour
         {
             if (shopManager.managerPanelsArray[i] == panelManager)
             {
+                shopManager.productPanelsArray[i].manager = true;
                 shopManager.managersStatesArray[i] = managerState;
-                //shopManager.productPanelsArray[i].manager = managerState;
                 shopManager.managersStatesArray = shopManager.managersStatesArray;
             }
         }

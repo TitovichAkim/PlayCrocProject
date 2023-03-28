@@ -3693,7 +3693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 35
+    m_Left: 63
     m_Right: 10
     m_Top: 10
     m_Bottom: 0
@@ -4569,7 +4569,7 @@ MonoBehaviour:
   - {fileID: 2054284051}
   - {fileID: 1033985014}
   - {fileID: 1947257922}
-  managersStates: 000000000000000000000000000000000000000000000000
+  _managersStatesArray: 
 --- !u!1 &1870736092
 GameObject:
   m_ObjectHideFlags: 0
