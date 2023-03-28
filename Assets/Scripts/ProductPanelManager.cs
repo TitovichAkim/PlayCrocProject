@@ -15,7 +15,6 @@ public class ProductPanelManager : MonoBehaviour
 
     public Button sellProductButton;
     public Button upgradeButton;
-    public Button managerButton;
 
     public Text productLevelText;
     public Text coinsPerSecondText;
@@ -24,15 +23,18 @@ public class ProductPanelManager : MonoBehaviour
     public Text costStringText;
     public Text timerText;
 
-    public int manager;
+
 
     private int _productInvestments;
     private int _upgradesNumber = 1;
+
     private float _productRevenue;
     private float _upgradeCost;
 
     private float _timerStart;
+    private bool _manager;
     private bool _timer;
+    private bool _sellProcess;
     
     public int productInvestments
     {
@@ -60,23 +62,26 @@ public class ProductPanelManager : MonoBehaviour
             RedrawThePanel();
         }
     }
+    public bool manager
+    {
+        get
+        {
+            return (_manager);
+        }
+        set
+        {
+            _manager = value;
+            if (manager && !_sellProcess)
+            {
+                StartSellProduct();
+            }
+        }
+    }
 
     private void Start ()
     {
         productIcon.sprite = productSO.icon;
         cardBackground.GetComponent<Image>().sprite = productSO.cardsBackground;
-
-        // надо будет перенести в другое место
-        if (manager == 1)
-        {
-            StartSellProduct();
-            managerButton.image.color = Color.green;
-        }
-        else
-        {
-            managerButton.image.color = Color.red;
-        }
-        // надо будет перенести в другое место
 
 
         if(PlayerPrefs.GetInt($"{productSO.productName}productInvestments") == 0 && productSO.productName == "TarotCards")
@@ -93,7 +98,7 @@ public class ProductPanelManager : MonoBehaviour
             }
         }
 
-        if(manager == 1 && productInvestments > 0)
+        if(manager && productInvestments > 0)
         {
             StartSellProduct();
         }
@@ -112,7 +117,10 @@ public class ProductPanelManager : MonoBehaviour
     }
     public void StartSellProduct ()
     {
-        StartCoroutine("SellProduct");
+        if (!_sellProcess)
+        {
+            StartCoroutine("SellProduct");
+        }
     }
     public IEnumerator SellProduct ()
     {
@@ -120,13 +128,15 @@ public class ProductPanelManager : MonoBehaviour
         {
             do
             {
+                _sellProcess = true;
                 _timerStart = Time.time;
                 _timer = true;
                 productBackground.enabled = false;
                 sellProductButton.interactable = false;
                 yield return new WaitForSeconds(productSO.initialTime);
                 _SellProduct();
-            } while(manager == 1);
+                _sellProcess = false;
+            } while(manager);
         }
     }
 
@@ -148,7 +158,7 @@ public class ProductPanelManager : MonoBehaviour
                 productBackground.enabled = true;
                 sellProductButton.interactable = true;
 
-                if(manager == 1)
+                if(manager)
                 {
                     StartSellProduct();
                 }

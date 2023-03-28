@@ -8,11 +8,12 @@ public class ManagerPanelManager : MonoBehaviour
 
     public Image managersIconImage;
     public Text managersDescriptionText;
+    public Text managerCostText;
     public Button buyButton;
 
-    private int _managerState;
+    private bool _managerState;
 
-    public int managerState
+    public bool managerState
     {
         get
         {
@@ -21,9 +22,7 @@ public class ManagerPanelManager : MonoBehaviour
         set
         {
             _managerState = value;
-            PlayerPrefs.SetInt($"{managerSO.managersName}.Manager", managerState);
             ActivateManager();
-            //_UpdateManagersStateArray(this);
         }
     }
 
@@ -31,11 +30,8 @@ public class ManagerPanelManager : MonoBehaviour
     {
         managersIconImage.sprite = managerSO.managersIcon;
         managersDescriptionText.text = $"{managerSO.managersName} " +
-            $"\nАвтоматизирует продажу {managerSO.managersName} " +
-            $"\n{managerSO.managersCost} $";
-
-        managerState = PlayerPrefs.GetInt($"{managerSO.managersName}.Manager");
-        BuyManager();
+            $"\nАвтоматизирует продажу {managerSO.managersName}";
+        NumberFormatter.FormatAndRedraw(managerSO.managersCost, managerCostText);
     }
     public void RedrawThePanel ()
     {
@@ -51,24 +47,23 @@ public class ManagerPanelManager : MonoBehaviour
 
     public void BuyManager ()
     {
-        if (managerState == 0)
+        if (!managerState)
         {
             if(shopManager.coins >= managerSO.managersCost)
             {
                 shopManager.coins -= managerSO.managersCost;
-                managerState = 1;
+                managerState = true;
                 ActivateManager();
             }
         }
     }
     public void ActivateManager ()
     {
-        if (managerState == 1)
+        if (managerState)
         {
             this.gameObject.SetActive(false);
             _UpdateManagersStateArray(this);
         }
-
     }
 
     private void _UpdateManagersStateArray (ManagerPanelManager panelManager)
@@ -76,7 +71,11 @@ public class ManagerPanelManager : MonoBehaviour
         for(int i = 0; i < shopManager.managerPanelsArray.Length; i++)
         {
             if (shopManager.managerPanelsArray[i] == panelManager)
-            shopManager.productPanelsArray[i].manager = managerState;
+            {
+                shopManager.managersStatesArray[i] = managerState;
+                //shopManager.productPanelsArray[i].manager = managerState;
+                shopManager.managersStatesArray = shopManager.managersStatesArray;
+            }
         }
     }
 }

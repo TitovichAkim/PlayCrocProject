@@ -9,12 +9,13 @@ public class ShopManager : MonoBehaviour
 
     public ProductPanelManager[] productPanelsArray;
     public ManagerPanelManager[] managerPanelsArray;
-    public int[] managersStates;
+
+    [SerializeField]private bool[] _managersStatesArray;
+
     private int[] _upgradeNumbers = {1, 10, 25, 100};
     private int _upgradeIndex = 0;
 
     private float _coins;
-
 
     public float coins
     {
@@ -28,14 +29,29 @@ public class ShopManager : MonoBehaviour
             NumberFormatter.FormatAndRedraw(_coins, numbersOfCoinsFloatText, numbersOfCoinsstringText);
             PlayerPrefs.SetFloat("Coin", _coins);
             _RedrawUpgradeButtons();
-            _DeactivatingTheManagersPanel();
+        }
+    }
+    public bool[] managersStatesArray
+    {
+        get
+        {
+            return (_managersStatesArray);
+        }
+        set
+        {
+            _managersStatesArray = value;
+            Debug.Log("„то-то случилось");
+            _SaveManagersStates();
+
         }
     }
 
     public void Start ()
     {
         coins = PlayerPrefs.GetFloat("Coin");
+        _managersStatesArray = new bool[managerPanelsArray.Length];
         _RedrawUpgradeButtons();
+        _LoadManagersState();
     }
 
     public void UpgradeIndexUp ()
@@ -59,17 +75,36 @@ public class ShopManager : MonoBehaviour
         }
         foreach(ManagerPanelManager managerPanel in managerPanelsArray)
         {
-            managerPanel.ActivateManager();
+            managerPanel.RedrawThePanel();
         }
     }
 
-    private void _DeactivatingTheManagersPanel ()
+    private void _SaveManagersStates ()
     {
-        for(int i = 0; i < managerPanelsArray.Length; i++)
+        for(int i = 0; i < managersStatesArray.Length; i++)
         {
-            if (managersStates[i] == 1)
+            int state = 0;
+            if (managersStatesArray[i])
             {
-                managerPanelsArray[i].gameObject.SetActive(false);
+                state = 1;
+                Debug.Log("—охран€ю в €чейку " + i);
+                if (i < productPanelsArray.Length)
+                {
+                    productPanelsArray[i].manager = true;
+                }
+            }
+            PlayerPrefs.SetInt($"{managerPanelsArray[i].managerSO.managersName}.Manager", state);
+        }
+    }
+
+    private void _LoadManagersState ()
+    {
+        for (int i=0; i < managersStatesArray.Length; i++)
+        {
+            int state = PlayerPrefs.GetInt($"{managerPanelsArray[i].managerSO.managersName}.Manager");
+            if (state == 1 && i < managerPanelsArray.Length)
+            {
+                managerPanelsArray[i].managerState = true;
             }
         }
     }
