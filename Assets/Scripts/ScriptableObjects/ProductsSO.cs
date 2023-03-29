@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProductsSO : ScriptableObject
 {
     public Sprite icon;
+    public Sprite cardsBackground;
 
     public string productName;
     public float initialCost;
