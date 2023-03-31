@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395f20622943d00488fd57b6061ba12d, type: 3}
   m_Name: 4CarnivorousPlant
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 785fed00814bc804aa185cfac906b94c, type: 3}
+  icon: {fileID: 21300000, guid: fb655070bb5e0454a980a6e07d4c1dea, type: 3}
   cardsBackground: {fileID: 21300000, guid: 65bf22c9e8365e2468abfd71c3a94588, type: 3}
   productName: CarnivorousPlant
   initialCost: 100000

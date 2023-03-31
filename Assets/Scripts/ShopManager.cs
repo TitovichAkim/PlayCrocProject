@@ -6,6 +6,7 @@ public class ShopManager : MonoBehaviour
     public Text numbersOfCoinsFloatText;
     public Text numbersOfCoinsstringText;
     public Text upgradesNumberText;
+    public Image[] ProductIconsOnTheShelf;
 
     public ProductPanelManager[] productPanelsArray;
     public ManagerPanelManager[] managerPanelsArray;
@@ -63,6 +64,7 @@ public class ShopManager : MonoBehaviour
         foreach(ProductPanelManager prodMan in productPanelsArray)
         {
             prodMan.upgradesNumber = _upgradeNumbers[_upgradeIndex];
+
         }
     }
 
@@ -76,6 +78,14 @@ public class ShopManager : MonoBehaviour
                 state = 1;
             }
             PlayerPrefs.SetInt($"{managerPanelsArray[i].managerSO.managersName}.Manager", state);
+        }
+    }
+
+    public void RedrawIconsOnTheShelf ()
+    {
+        for(int i = 0; i < ProductIconsOnTheShelf.Length; i++)
+        {
+            ProductIconsOnTheShelf[i].enabled = productPanelsArray[i].productInvestments > 0;
         }
     }
     private void _RedrawUpgradeButtons ()

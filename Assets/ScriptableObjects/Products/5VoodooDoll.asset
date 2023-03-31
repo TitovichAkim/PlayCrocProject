@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395f20622943d00488fd57b6061ba12d, type: 3}
   m_Name: 5VoodooDoll
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 6d7416e40ffb23041ba8a3bae80d0788, type: 3}
+  icon: {fileID: 21300000, guid: a94c73515d1a82143bd8be46211284e8, type: 3}
   cardsBackground: {fileID: 21300000, guid: c32183d53053e0a4d8c0e494f90f83bb, type: 3}
   productName: VoodooDoll
   initialCost: 1250000

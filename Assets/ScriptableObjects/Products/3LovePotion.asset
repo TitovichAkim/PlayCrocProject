@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395f20622943d00488fd57b6061ba12d, type: 3}
   m_Name: 3LovePotion
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e567750f2509cc34c86d7d33ee3f8bde, type: 3}
+  icon: {fileID: 21300000, guid: 267397cb824e8a547a1e7c85c073e2cc, type: 3}
   cardsBackground: {fileID: 21300000, guid: bcec418fc6d5b2941af155307cbed4cd, type: 3}
   productName: LovePotion
   initialCost: 8000

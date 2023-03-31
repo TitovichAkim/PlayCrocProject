@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395f20622943d00488fd57b6061ba12d, type: 3}
   m_Name: 1BallOfYarn
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 44a93c40b70dacc418c52d6e8044a981, type: 3}
+  icon: {fileID: 21300000, guid: dad7521e08faf904ba5a32b59360525d, type: 3}
   cardsBackground: {fileID: 21300000, guid: 1c30c88cea76e834aa72002e3164d454, type: 3}
   productName: BallOfYarn
   initialCost: 60

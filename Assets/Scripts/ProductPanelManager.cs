@@ -190,13 +190,7 @@ public class ProductPanelManager : MonoBehaviour
 
     public void RedrawUpgradeButton ()
     {
-        if (shopManager.coins >= _upgradeCost) 
-        {
-            upgradeButton.interactable = true;
-        } 
-        else
-        {
-            upgradeButton.interactable = false;
-        }
+        upgradeButton.interactable = shopManager.coins >= _upgradeCost;
+        shopManager.RedrawIconsOnTheShelf();
     }
 }
