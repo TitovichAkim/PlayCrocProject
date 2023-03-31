@@ -104,6 +104,7 @@ public class ProductPanelManager : MonoBehaviour
         }
 
         RedrawUpgradeButton();
+        shopManager.RedrawIconsOnTheShelf();
     }
  
     private void Update ()
@@ -166,6 +167,7 @@ public class ProductPanelManager : MonoBehaviour
             shopManager.coins -= _upgradeCost;
             productInvestments += _upgradesNumber;
             RedrawThePanel();
+            shopManager.RedrawIconsOnTheShelf();
         }
     }
 
@@ -191,6 +193,5 @@ public class ProductPanelManager : MonoBehaviour
     public void RedrawUpgradeButton ()
     {
         upgradeButton.interactable = shopManager.coins >= _upgradeCost;
-        shopManager.RedrawIconsOnTheShelf();
     }
 }
