@@ -35,14 +35,7 @@ public class ManagerPanelManager : MonoBehaviour
     }
     public void RedrawThePanel ()
     {
-        if(shopManager.coins >= managerSO.managersCost)
-        {
-            buyButton.interactable = true;
-        }
-        else
-        {
-            buyButton.interactable = false;
-        }
+        buyButton.interactable = shopManager.coins >= managerSO.managersCost;
     }
 
     public void BuyManager ()
@@ -68,14 +61,14 @@ public class ManagerPanelManager : MonoBehaviour
 
     private void _UpdateManagersStateArray (ManagerPanelManager panelManager)
     {
-        for(int i = 0; i < shopManager.managerPanelsArray.Length; i++)
+    for(int i = 0; i < shopManager.managerPanelsArray.Length; i++)
+    {
+        if (shopManager.managerPanelsArray[i] == panelManager)
         {
-            if (shopManager.managerPanelsArray[i] == panelManager)
-            {
-                shopManager.productPanelsArray[i].manager = true;
-                shopManager.managersStatesArray[i] = managerState;
-                shopManager.managersStatesArray = shopManager.managersStatesArray;
-            }
+            shopManager.productPanelsArray[i].manager = true;
+            shopManager.managersStatesArray[i] = managerState;
+            shopManager.managersStatesArray = shopManager.managersStatesArray;
+        }
         }
     }
 }

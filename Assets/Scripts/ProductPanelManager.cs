@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class ProductPanelManager : MonoBehaviour
 {
@@ -30,6 +29,8 @@ public class ProductPanelManager : MonoBehaviour
 
     private float _productRevenue;
     private float _upgradeCost;
+    private float _multiplierProductRevenue = 1;
+    private float _multiplierInitialTime = 1;
 
     private float _timerStart;
     private bool _manager;
@@ -59,6 +60,30 @@ public class ProductPanelManager : MonoBehaviour
         {
             _upgradesNumber = value;
             buyNumberText.text = $" упить\nx{_upgradesNumber}";
+            RedrawThePanel();
+        }
+    }
+    public float multiplierProductRevenue
+    {
+        get
+        {
+            return (_multiplierProductRevenue);
+        }
+        set
+        {
+            _multiplierProductRevenue = value;
+            RedrawThePanel();
+        }
+    }
+    public float multiplierInitialTime
+    {
+        get
+        {
+            return (_multiplierInitialTime);
+        }
+        set
+        {
+            _multiplierInitialTime = value;
             RedrawThePanel();
         }
     }
@@ -111,8 +136,8 @@ public class ProductPanelManager : MonoBehaviour
     {
         if (_timer)
         {
-            float timer = productSO.initialTime - Mathf.FloorToInt((Time.time - _timerStart) % 60);
-            progressBar.fillAmount = (Time.time - _timerStart) / productSO.initialTime;
+            float timer = productSO.initialTime / multiplierInitialTime - Mathf.FloorToInt((Time.time - _timerStart) % 60);
+            progressBar.fillAmount = (Time.time - _timerStart) / (productSO.initialTime / multiplierInitialTime);
             timerText.text = $"{timer} сек.";
         }
     }
@@ -134,7 +159,7 @@ public class ProductPanelManager : MonoBehaviour
                 _timer = true;
                 productBackground.enabled = false;
                 sellProductButton.interactable = false;
-                yield return new WaitForSeconds(productSO.initialTime);
+                yield return new WaitForSeconds(productSO.initialTime / multiplierInitialTime);
                 _SellProduct();
                 _sellProcess = false;
             } while(manager);
@@ -147,7 +172,7 @@ public class ProductPanelManager : MonoBehaviour
         _timer = false;
         productBackground.enabled = true;
         sellProductButton.interactable = true;
-        timerText.text = $"{productSO.initialTime} сек.";
+        timerText.text = $"{productSO.initialTime / multiplierInitialTime} сек.";
     }
 
     public void ProductLevelUp ()
@@ -174,9 +199,9 @@ public class ProductPanelManager : MonoBehaviour
     private void RedrawThePanel ()
     {
         productLevelText.text = productInvestments.ToString();
-        timerText.text = $"{productSO.initialTime} сек.";
+        timerText.text = $"{productSO.initialTime / multiplierInitialTime} сек.";
 
-        _productRevenue = _productInvestments * productSO.initialRevenue;
+        _productRevenue = _productInvestments * productSO.initialRevenue * multiplierProductRevenue;
 
 
         float totalCost = 0;
