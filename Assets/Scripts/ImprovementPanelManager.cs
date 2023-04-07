@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ImprovementPanelManager: MonoBehaviour
 {
-    public ImprovementSO improvementSO;
+
     public ShopManager shopManager;
 
     public Image improvementIconImage;
@@ -11,8 +11,22 @@ public class ImprovementPanelManager: MonoBehaviour
     public Text improvementCostText;
     public Button buyButton;
 
+    public ImprovementSO _improvementSO;
+
     private bool _improvementState;
 
+    public ImprovementSO improvementSO
+    {
+        get
+        {
+            return (_improvementSO);
+        }
+        set
+        {
+            _improvementSO = value;
+            StartPanel();
+        }
+    }
     public bool improvementState
     {
         get
@@ -25,7 +39,7 @@ public class ImprovementPanelManager: MonoBehaviour
         }
     }
 
-    public void Start ()
+    public void StartPanel ()
     {
         string improvementTypeText = "Œÿ»¡ ¿";
         switch(improvementSO.improvementsType)

@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    public GameObject productsPanel;
+    public GameObject managersPanel;
+    public GameObject improvementsPanel;
+
     public Text numbersOfCoinsFloatText;
     public Text numbersOfCoinsstringText;
     public Text upgradesNumberText;
@@ -61,13 +65,18 @@ public class ShopManager : MonoBehaviour
 
     public void Start ()
     {
+
+    }
+
+    public void StartShop ()
+    {
         coins = PlayerPrefs.GetFloat("Coin");
         _managersStatesArray = new bool[managerPanelsArray.Length];
         _improvementsStatesArray = new bool[improvementPanelArray.Length];
         _RedrawUpgradeButtons();
         _LoadManagersState();
         _LoadImprovementsStates();
-    }
+    } 
 
     public void UpgradeIndexUp ()
     {
@@ -113,7 +122,14 @@ public class ShopManager : MonoBehaviour
     {
         for(int i = 0; i < ProductIconsOnTheShelf.Length; i++)
         {
-            ProductIconsOnTheShelf[i].enabled = productPanelsArray[i].productInvestments > 0;
+            if (productPanelsArray[i] != null)
+            {
+                ProductIconsOnTheShelf[i].enabled = productPanelsArray[i].productInvestments > 0;
+            } 
+            else
+            {
+                break;
+            }
         }
     }
     public void ApplyImprovementState (int type, int target, int index)
@@ -135,15 +151,36 @@ public class ShopManager : MonoBehaviour
     {
         foreach(ProductPanelManager prodMan in productPanelsArray)
         {
-            prodMan.RedrawUpgradeButton();
+            if (prodMan)
+            {
+                prodMan.RedrawUpgradeButton();
+            } 
+            else
+            {
+                break;
+            }
         }
         foreach(ManagerPanelManager managerPanel in managerPanelsArray)
         {
-            managerPanel.RedrawThePanel();
+            if(managerPanel)
+            {
+                managerPanel.RedrawThePanel();
+            }
+            else
+            {
+                break;
+            }
         }
         foreach(ImprovementPanelManager improveMan in improvementPanelArray)
         {
-            improveMan.RedrawThePanel();
+            if(improveMan)
+            {
+                improveMan.RedrawThePanel();
+            }
+            else
+            {
+                break;
+            }
         }
     }
 

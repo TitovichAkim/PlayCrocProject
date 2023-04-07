@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ManagerPanelManager : MonoBehaviour
 {
-    public ManagersSO managerSO;
+
     public ShopManager shopManager;
 
     public Image managersIconImage;
@@ -12,8 +12,22 @@ public class ManagerPanelManager : MonoBehaviour
     public Text managerCostText;
     public Button buyButton;
 
+    public ManagersSO _managerSO;
+
     private bool _managerState;
 
+    public ManagersSO managerSO
+    {
+        get
+        {
+            return (_managerSO);
+        }
+        set
+        {
+            _managerSO = value;
+            StartPanel();
+        }
+    }
     public bool managerState
     {
         get
@@ -27,14 +41,13 @@ public class ManagerPanelManager : MonoBehaviour
         }
     }
 
-    public void Start ()
+    public void StartPanel ()
     {
         LocalisationTexts();
         managersIconImage.sprite = managerSO.managersIcon;
         managersDescriptionText.text = $"{managerSO.managersName} " +
             $"\nАвтоматизирует продажу {managerSO.managersName}";
         NumberFormatter.FormatAndRedraw(managerSO.managersCost, managerCostText);
-        
     }
     public void RedrawThePanel ()
     {

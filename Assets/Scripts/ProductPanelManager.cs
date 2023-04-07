@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ProductPanelManager : MonoBehaviour
 {
-    public ProductsSO productSO;
+
     public ShopManager shopManager;
 
     public Image productIcon;
@@ -22,7 +22,7 @@ public class ProductPanelManager : MonoBehaviour
     public Text costStringText;
     public Text timerText;
 
-
+    public ProductsSO _productSO;
 
     private int _productInvestments;
     private int _upgradesNumber = 1;
@@ -36,7 +36,19 @@ public class ProductPanelManager : MonoBehaviour
     private bool _manager;
     private bool _timer;
     private bool _sellProcess;
-    
+
+    public ProductsSO productSO
+    {
+        get
+        {
+            return (_productSO);
+        }
+        set
+        {
+            _productSO = value;
+            StartPanel();
+        }
+    }
     public int productInvestments
     {
         get
@@ -103,7 +115,7 @@ public class ProductPanelManager : MonoBehaviour
         }
     }
 
-    private void Start ()
+    public void StartPanel ()
     {
         productIcon.sprite = productSO.icon;
         cardBackground.GetComponent<Image>().sprite = productSO.cardsBackground;
