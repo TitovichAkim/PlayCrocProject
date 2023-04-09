@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69cd4b20f167bf4f8a1116367823d9d, type: 3}
   m_Name: 0TarotCardsManager
   m_EditorClassIdentifier: 
-  managersIcon: {fileID: 21300000, guid: 8498ae953530a0742a22f28756663e69, type: 3}
-  managersName: 0TarotCards
+  managersIcon: {fileID: 21300000, guid: 5efb32d6dbb653d48bf2c0589f574512, type: 3}
+  managersName: 0AutomaticSaleTarotCards
   managersCost: 1000

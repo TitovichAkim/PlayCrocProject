@@ -4,42 +4,19 @@ using System.Text.RegularExpressions;
 
 public static class Localizator
 {
-    /*
-    public string key;
-    void Awake ()
-    {  // если язык выбран...
-        if(PlayerPrefs.HasKey("GameLanguage"))
-        {
-            string GameLanguage = PlayerPrefs.GetString("GameLanguage");  //  RU/EN
-            change_text(localized_text(key, GameLanguage));
-        }
-        else
-        {  // если язык не выбран то английский по умолчанию
-            change_text(localized_text(key, "EN"));
-        }
-    }
-
-
-
-    private void change_text (string new_text)
-    {
-        // вставляем текст в текстовое поле объекта на котором висит скрипт
-        GetComponent<Text>().text = new_text;
-    }
-    */
-    public static void LocalizedText (Text targetTextObject, string key)
+    public static void LocalizedText (Text targetTextObject, string key, int num = 0)
     {
         if(PlayerPrefs.HasKey("GameLanguage"))
         {
             string GameLanguage = PlayerPrefs.GetString("GameLanguage");  //  RU/EN
-            targetTextObject.text = localized_text(key, GameLanguage);
+            targetTextObject.text = localized_text(key, GameLanguage, num);
         }
         else
-        {  // если язык не выбран то английский по умолчанию
-            targetTextObject.text = localized_text(key, "EN");
+        {  // если язык не выбран то русский по умолчанию
+            targetTextObject.text = localized_text(key, "RU", num);
         }
     }
-    private static string localized_text (string key, string lang)
+    private static string localized_text (string key, string lang, int num)
     {
         string[] fileKey = key.Split('.');
        // вытаскиваем из таблицы значение
@@ -53,12 +30,12 @@ public static class Localizator
             if(key == cuted_row[0])
             {
                 if(lang == "RU")
-                {   
-                    return cuted_row[1];
+                {
+                    return cuted_row[1].Replace("_", "\n").Split("\n")[num];
                 }
                 else if(lang == "EN")
                 {
-                    return cuted_row[2];
+                    return cuted_row[2].Replace("_", "\n").Split("\n")[num];
                 }
                 break;
             }

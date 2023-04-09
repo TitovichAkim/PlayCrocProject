@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   improvementsIcon: {fileID: 21300000, guid: 1c370df62ea521c4cb9d3efb341c3b19, type: 3}
-  improvementsName: 2
+  improvementsName: 2ProfitX2Spellbook
   improvementsCost: 1000000
   improvementsValue: 2
   improvementsType: 0

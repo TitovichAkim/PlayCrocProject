@@ -6,8 +6,13 @@ public class ImprovementPanelManager: MonoBehaviour
 
     public ShopManager shopManager;
 
+    public Image improvementIconBackgroundImage;
     public Image improvementIconImage;
+    public Image improvementTypeImage;
+    public Image[] improvementTypeImagesArray;
+    public Text improvementNameText;
     public Text improvementDescriptionText;
+    public Text improvementTypeText;
     public Text improvementCostText;
     public Button buyButton;
 
@@ -41,21 +46,11 @@ public class ImprovementPanelManager: MonoBehaviour
 
     public void StartPanel ()
     {
-        string improvementTypeText = "ОШИБКА";
-        switch(improvementSO.improvementsType)
-        {
-            case 0:
-                improvementTypeText = "Увеличивает доход";
-                break;
-            case 1:
-                improvementTypeText = "Сокращает время";
-                break;
-        }
-
         improvementIconImage.sprite = improvementSO.improvementsIcon;
-        improvementDescriptionText.text = $"{improvementSO.improvementsName} " +
-            $"\n{improvementTypeText} " +
-            $"\n в {improvementSO.improvementsValue} раз";
+
+        Localizator.LocalizedText(improvementNameText, $"ImprovementName.{improvementSO.improvementsName}");
+        Localizator.LocalizedText(improvementDescriptionText, $"ImprovementName.{improvementSO.improvementsName}");
+        Localizator.LocalizedText(improvementTypeText, $"ImprovementDescription.{improvementSO.improvementsName}");
         NumberFormatter.FormatAndRedraw(improvementSO.improvementsCost, improvementCostText);
     }
 

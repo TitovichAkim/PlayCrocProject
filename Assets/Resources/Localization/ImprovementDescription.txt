@@ -1,0 +1,13 @@
+key	RU	EN
+ImprovementDescription.0ProfitX2TarotCards	Прибыль в 2 раза больше: _гадальные карты	
+ImprovementDescription.1ProfitX2BallOfYarn	Прибыль в 2 раза больше: _навигационные клубки	
+ImprovementDescription.2ProfitX2Spellbook	Прибыль в 2 раза больше: _самоучители по черной магии	
+ImprovementDescription.3ProfitX2LovePotion	Прибыль в 2 раза больше: _приворотные зелья	
+ImprovementDescription.4ProfitX2CarnivorousPlant	Прибыль в 2 раза больше: _растительная охранная система	
+ImprovementDescription.5ProfitX2VoodooDoll	Прибыль в 2 раза больше: _куклы вуду	
+ImprovementName.6TimeX2TarotCards	Продажа в 2 раза быстрее: _гадальные карты	
+ImprovementName.7TimeX2BallOfYarn	Продажа в 2 раза быстрее: _навигационные клубки	
+ImprovementName.8TimeX2Spellbook	Продажа в 2 раза быстрее: _самоучители по черной магии	
+ImprovementName.9TimeX2LovePotion	Продажа в 2 раза быстрее: _приворотные зелья	
+ImprovementName.10TimeX2CarnivorousPlant	Продажа в 2 раза быстрее: _растительная охранная система	
+ImprovementName.11TimeX2VoodooDoll	Продажа в 2 раза быстрее: _куклы вуду	

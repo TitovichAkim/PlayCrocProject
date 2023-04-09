@@ -1,0 +1,7 @@
+key	RU	EN
+ManagerDescription.0AutomaticSaleTarotCards	Нагадает счастье по скидке _Автоматическая продажа: _гадальные карты	
+ManagerDescription.1AutomaticSaleBallOfYarn	Всегда найдет выход _Автоматическая продажа: _навигационные клубки	
+ManagerDescription.2AutomaticSaleSpellBook	Хобби: выпечка и некромантия _Автоматическая продажа: _самоучители по черной магии	
+ManagerDescription.3AutomaticSaleLovePotion	Даже любовь имеет свою цену _Автоматическая продажа: _приворотные зелья	
+ManagerDescription.4AutomaticSaleCarnivorousPlant	Зомби не против растений _Автоматическая продажа: _растительная охранная система	
+ManagerDescription.5AutomaticSaleVoodooDoll	С ним лучше не ссориться _Автоматическая продажа: _куклы вуду

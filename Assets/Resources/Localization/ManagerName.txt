@@ -1,7 +1,7 @@
 key	RU	EN
-ManagerName.0TarotCards	Карты Таро	Tarot Cards
-ManagerName.1BallOfYarn	Клубок	Ball Of Yarn
-ManagerName.2Spellbook	Книга заклинаний	Spell book
-ManagerName.3LovePotion	Любовне зелье	Love Potion
-ManagerName.4CarnivorousPlant	Плотоядное растение	Carnivorous Plant
-ManagerName.5VoodooDoll	Кукла Вуду	Voodoo Doll
+ManagerName.0AutomaticSaleTarotCards	РњР°РґР°Рј РњРёСЃС‚РёРє	
+ManagerName.1AutomaticSaleBallOfYarn	РђСЂРёР°РґРЅР°	
+ManagerName.2AutomaticSaleSpellBook	РўРµРјРЅС‹Р№ РєРѕР»РґСѓРЅ	
+ManagerName.3AutomaticSaleLovePotion	Р¤РµСЏ-РєСЂРµСЃС‚РЅР°СЏ	
+ManagerName.4AutomaticSaleCarnivorousPlant	Р“РЅРёСЋС‰РёР№ СЃР°РґРѕРІРЅРёРє	
+ManagerName.5AutomaticSaleVoodooDoll	Р’РµСЂС…РѕРІРЅС‹Р№ Р¶СЂРµС†

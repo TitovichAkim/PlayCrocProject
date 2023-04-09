@@ -533,7 +533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea04e202faa4b294eaee0a4a35f188d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productSO: {fileID: 0}
   shopManager: {fileID: 0}
   productIcon: {fileID: 1047635474925706009}
   productBackground: {fileID: 3837262916389118759}
@@ -547,6 +546,7 @@ MonoBehaviour:
   costFloatText: {fileID: 3837262916879179925}
   costStringText: {fileID: 3837262916980873733}
   timerText: {fileID: 3837262917702993569}
+  _productSO: {fileID: 0}
 --- !u!114 &6539016682196014929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85dd1c2c42cbaac4c80a0e630c3285d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fda978f262e3a148a5fc4dcf8efd5ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1025,10 +1025,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: a190432e2b9d7ab4db58ec9979ede26c, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 9fda978f262e3a148a5fc4dcf8efd5ea, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9fda978f262e3a148a5fc4dcf8efd5ea, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 9fda978f262e3a148a5fc4dcf8efd5ea, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 830da333c16a25545aadb57c244fd7d8, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

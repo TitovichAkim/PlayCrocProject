@@ -1,17 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LanguageChanger :MonoBehaviour
 {
-    public void Set_RU ()
+    public Dropdown dropdown;
+    public void Start ()
     {
-        // сохраняем пару ключ-значение
-        PlayerPrefs.SetString("GameLanguage", "RU");
-        // выведем сведетельство того, что игра увидела смену языка
-        Debug.Log("Language changed to RUSSIAN");
+        switch(PlayerPrefs.GetString("GameLanguage"))
+        {
+            case "RU":
+                dropdown.value = 0;
+                break;
+            case "EN":
+                dropdown.value = 1;
+                break;
+        }
+        dropdown.onValueChanged.AddListener(delegate { SetLanguage(); });
     }
-    public void Set_EN ()
+    public void SetLanguage ()
     {
-        PlayerPrefs.SetString("GameLanguage", "EN");
-        Debug.Log("Language changed to ENGLISH");
+        switch(dropdown.value)
+        {
+            case 0:
+                PlayerPrefs.SetString("GameLanguage", "RU");
+                break;
+            case 1:
+                PlayerPrefs.SetString("GameLanguage", "EN");
+                break;
+        }
+        Debug.Log(dropdown.value);
+        Debug.Log(PlayerPrefs.GetString("GameLanguage"));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

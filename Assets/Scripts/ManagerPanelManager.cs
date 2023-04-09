@@ -9,6 +9,8 @@ public class ManagerPanelManager : MonoBehaviour
     public Image managersIconImage;
     public Text managerNameText;
     public Text managersDescriptionText;
+    public Text managerActionText;
+    public Text ManagerActionTargetText;
     public Text managerCostText;
     public Button buyButton;
 
@@ -45,8 +47,7 @@ public class ManagerPanelManager : MonoBehaviour
     {
         LocalisationTexts();
         managersIconImage.sprite = managerSO.managersIcon;
-        managersDescriptionText.text = $"{managerSO.managersName} " +
-            $"\nАвтоматизирует продажу {managerSO.managersName}";
+
         NumberFormatter.FormatAndRedraw(managerSO.managersCost, managerCostText);
     }
     public void RedrawThePanel ()
@@ -91,5 +92,11 @@ public class ManagerPanelManager : MonoBehaviour
     private void LocalisationTexts ()
     {
         Localizator.LocalizedText(managerNameText, $"ManagerName.{managerSO.managersName}");
+        Text[] descriprionTexts = {managersDescriptionText, managerActionText, ManagerActionTargetText};
+        for(int i = 0; i < descriprionTexts.Length; i++)
+        {
+            Localizator.LocalizedText(descriprionTexts[i], $"ManagerDescription.{managerSO.managersName}", i);
+        }
+        //Localizator.LocalizedText(managersDescriptionText, $"ManagerDescription.{managerSO.managersName}");
     }
 }
