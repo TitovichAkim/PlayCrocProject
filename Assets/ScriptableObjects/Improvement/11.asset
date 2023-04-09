@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69609a7c65b6a5149b69f48c5e53e9fd, type: 3}
   m_Name: 11
   m_EditorClassIdentifier: 
-  improvementsIcon: {fileID: 21300000, guid: a94c73515d1a82143bd8be46211284e8, type: 3}
+  improvementsIcon: {fileID: 21300000, guid: b65a8d87e7d472e4a8eb184e1436deae, type: 3}
   improvementsName: 11TimeX2VoodooDoll
   improvementsCost: 300000000
   improvementsValue: 2

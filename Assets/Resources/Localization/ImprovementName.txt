@@ -1,13 +1,13 @@
 key	RU	EN
 ImprovementName.0ProfitX2TarotCards	Голографический дизайн колоды	
 ImprovementName.1ProfitX2BallOfYarn	Позолоченные нити	
-ImprovementName.2ProfitX2Spellbook	Защитные чары против добра	
+ImprovementName.2ProfitX2SpellBook	Защитные чары против добра	
 ImprovementName.3ProfitX2LovePotion	Вытяжка из любовных стихов	
 ImprovementName.4ProfitX2CarnivorousPlant	Сухие корма с гоблинским мясом	
 ImprovementName.5ProfitX2VoodooDoll	Прочные иглы с лунным камнем	
 ImprovementName.6TimeX2TarotCards	Усилители связи с призраками	
 ImprovementName.7TimeX2BallOfYarn	Функция поиска легендарного героя	
-ImprovementName.8TimeX2Spellbook	Чернила из толченого рога единорога	
+ImprovementName.8TimeX2SpellBook	Чернила из толченого рога единорога	
 ImprovementName.9TimeX2LovePotion	Перья Купидона	
 ImprovementName.10TimeX2CarnivorousPlant	Укрепленные намордники	
 ImprovementName.11TimeX2VoodooDoll	Сборник проклятий в подарок

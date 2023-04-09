@@ -13,6 +13,8 @@ public class WorldFactory:MonoBehaviour
     public ManagersSO[] managersSOArray;
     public ImprovementSO[] improvementSOArray;
 
+    public Sprite[] improvementBackgroundImages;
+
     private ShopManager _ShopManager;
 
     public void Awake ()
@@ -81,7 +83,7 @@ public class WorldFactory:MonoBehaviour
             ImprovementPanelManager improvement = panel.GetComponent<ImprovementPanelManager>();
             improvement.shopManager = _ShopManager;
             _ShopManager.improvementPanelArray[i] = improvement;
-
+            improvement.improvementBackgroundImage.sprite = improvementBackgroundImages[improvementSOArray[i].improvementsType];
             improvement.improvementSO = improvementSOArray[i];
         }
     }

@@ -6,10 +6,8 @@ public class ImprovementPanelManager: MonoBehaviour
 
     public ShopManager shopManager;
 
-    public Image improvementIconBackgroundImage;
     public Image improvementIconImage;
-    public Image improvementTypeImage;
-    public Image[] improvementTypeImagesArray;
+    public Image improvementBackgroundImage;
     public Text improvementNameText;
     public Text improvementDescriptionText;
     public Text improvementTypeText;
@@ -49,8 +47,11 @@ public class ImprovementPanelManager: MonoBehaviour
         improvementIconImage.sprite = improvementSO.improvementsIcon;
 
         Localizator.LocalizedText(improvementNameText, $"ImprovementName.{improvementSO.improvementsName}");
-        Localizator.LocalizedText(improvementDescriptionText, $"ImprovementName.{improvementSO.improvementsName}");
-        Localizator.LocalizedText(improvementTypeText, $"ImprovementDescription.{improvementSO.improvementsName}");
+        Text[] descriptionTexts = { improvementDescriptionText, improvementTypeText };
+        for(int i = 0; i < descriptionTexts.Length; i++)
+        {
+            Localizator.LocalizedText(descriptionTexts[i], $"ImprovementDescription.{improvementSO.improvementsName}", i);
+        }
         NumberFormatter.FormatAndRedraw(improvementSO.improvementsCost, improvementCostText);
     }
 

@@ -342,3 +342,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 85fa7cab310eb6b41a51576386c0ca3b, type: 2}
   - {fileID: 11400000, guid: cc00d0db20eb3ef4f9be38cc9f451a18, type: 2}
   - {fileID: 11400000, guid: 3f8a76f6404b6274f849fd4149b5159e, type: 2}
+  improvementBackgroundImages:
+  - {fileID: 21300000, guid: 06eb71909c757594c936dafc202b3932, type: 3}
+  - {fileID: 21300000, guid: ea1ff877ae5032c4ebc66244b77ade9f, type: 3}
