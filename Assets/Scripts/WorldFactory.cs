@@ -30,6 +30,8 @@ public class WorldFactory:MonoBehaviour
 
     public async void AssembleShop ()
     {
+        CollectMenu();
+
         InitializeArrays();
 
         CollectProducts();
@@ -38,7 +40,7 @@ public class WorldFactory:MonoBehaviour
 
         CollectImprovement();
 
-        CollectMenu();
+
 
         _ShopManager.StartShop();
     }
