@@ -15,12 +15,13 @@ public class MenuManager : MonoBehaviour
     public GameObject ReturnPanel;
     public float exitTime;
     public float timeSinceExit;
+    public TimeSpan currentTime;
     private float _reward = 0;
 
     public void Start ()
     {
-        timeSinceExit = (float)(DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("lastSessionEndTime", DateTime.Now.ToString()))).TotalSeconds;
-        //timeSinceExit = Time.realtimeSinceStartup - exitTime;
+        currentTime = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("lastSessionEndTime", DateTime.Now.ToString()));
+        timeSinceExit = (float)currentTime.TotalSeconds;
         Debug.Log(Time.realtimeSinceStartup);
         if (timeSinceExit > 6)
         {
@@ -32,21 +33,19 @@ public class MenuManager : MonoBehaviour
     }
     public void CollectTheReward ()
     {
-        timerText.text = $"You were not in the game: {timeSinceExit}";
+        timerText.text = $"You were not in the game: {$"{(int)currentTime.TotalHours}:{currentTime.TotalMinutes % 59:00}:{currentTime.TotalSeconds % 59:00}"}";
 
 
         foreach (ProductPanelManager productPanelManager in shopManager.productPanelsArray)
         {
-            Debug.Log("Ïûòàþñü");
             if (productPanelManager.manager)
             {
-                float êewardMultiplier = timeSinceExit/productPanelManager.productSO.initialTime;
+                float êewardMultiplier = timeSinceExit/productPanelManager.productSO.initialTime * productPanelManager.multiplierInitialTime;
                 _reward += productPanelManager.productRevenue * êewardMultiplier;
                 ReturnPanel.SetActive(true);
-                Debug.Log("Ïîëó÷èëîñü");
             }
         }
-        rewardText.text = _reward.ToString();
+        NumberFormatter.FormatAndRedraw(_reward, rewardText);
         StartCoroutine(SaveTheMoment());
     }
 
