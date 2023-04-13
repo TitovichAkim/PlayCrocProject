@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public static class NumberFormatter
 {
-    static string[] names = { "", "", "", "млрд", "трлн", "квдрлн", "квнтлн", "секстлн", "септлн", "октлн", "нонлн", "децилн", "анд-децилн"};
+    //static string[] names = { "", "", "", "млрд", "трлн", "квдрлн", "квнтлн", "секстлн", "септлн", "октлн", "нонлн", "децилн", "анд-децилн"};
+    static string[] names = { "", "", "", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion", "undecillion"};
     public static void FormatAndRedraw (float inputNumber, Text floatText, Text stringText = null)
     {
         int n = 0;
