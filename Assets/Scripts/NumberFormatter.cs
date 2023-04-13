@@ -26,7 +26,7 @@ public static class NumberFormatter
             }
             else
             {
-                floatText.text = inputNumber.ToString("N2", CultureInfo.InvariantCulture);
+                floatText.text = $"{inputNumber.ToString("N2", CultureInfo.InvariantCulture)} {names[n]}";
             }
         }   
         else
@@ -38,7 +38,7 @@ public static class NumberFormatter
             }
             else
             {
-                floatText.text = inputNumber.ToString("N3", CultureInfo.InvariantCulture);
+                floatText.text = $"{inputNumber.ToString("N3", CultureInfo.InvariantCulture)} {names[n]}";
             }
         }
 

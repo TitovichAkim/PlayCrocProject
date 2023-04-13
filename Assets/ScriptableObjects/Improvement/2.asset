@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69609a7c65b6a5149b69f48c5e53e9fd, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  improvementsIcon: {fileID: 21300000, guid: 1c370df62ea521c4cb9d3efb341c3b19, type: 3}
-  improvementsName: 2
-  improvementsCost: 1000000
+  improvementsIcon: {fileID: 21300000, guid: b445d39dcab9e9e4392f464a6e4f257d, type: 3}
+  improvementsName: 2ProfitX2SpellBook
+  improvementsCost: 70000
   improvementsValue: 2
   improvementsType: 0
   improvementsTargetIndex: 2

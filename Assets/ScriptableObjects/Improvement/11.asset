@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69609a7c65b6a5149b69f48c5e53e9fd, type: 3}
-  m_Name: 0 1
+  m_Name: 11
   m_EditorClassIdentifier: 
-  improvementsIcon: {fileID: 21300000, guid: 8498ae953530a0742a22f28756663e69, type: 3}
-  improvementsName: 01
-  improvementsCost: 10
+  improvementsIcon: {fileID: 21300000, guid: b65a8d87e7d472e4a8eb184e1436deae, type: 3}
+  improvementsName: 11TimeX2VoodooDoll
+  improvementsCost: 50000000
   improvementsValue: 2
   improvementsType: 1
-  improvementsTargetIndex: 0
+  improvementsTargetIndex: 5

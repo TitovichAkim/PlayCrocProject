@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ProductPanelManager : MonoBehaviour
 {
-    public ProductsSO productSO;
+
     public ShopManager shopManager;
 
     public Image productIcon;
@@ -22,7 +22,7 @@ public class ProductPanelManager : MonoBehaviour
     public Text costStringText;
     public Text timerText;
 
-
+    public ProductsSO _productSO;
 
     private int _productInvestments;
     private int _upgradesNumber = 1;
@@ -36,7 +36,19 @@ public class ProductPanelManager : MonoBehaviour
     private bool _manager;
     private bool _timer;
     private bool _sellProcess;
-    
+
+    public ProductsSO productSO
+    {
+        get
+        {
+            return (_productSO);
+        }
+        set
+        {
+            _productSO = value;
+            StartPanel();
+        }
+    }
     public int productInvestments
     {
         get
@@ -59,8 +71,19 @@ public class ProductPanelManager : MonoBehaviour
         set
         {
             _upgradesNumber = value;
-            buyNumberText.text = $" упить\nx{_upgradesNumber}";
+            Localizator.LocalizedText(buyNumberText, $"General.Buy", 0, $"\nx {_upgradesNumber}");
             RedrawThePanel();
+        }
+    }
+    public float productRevenue
+    {
+        get
+        {
+            return (_productRevenue);
+        }
+        set
+        {
+            _productRevenue = value;
         }
     }
     public float multiplierProductRevenue
@@ -103,7 +126,7 @@ public class ProductPanelManager : MonoBehaviour
         }
     }
 
-    private void Start ()
+    public void StartPanel ()
     {
         productIcon.sprite = productSO.icon;
         cardBackground.GetComponent<Image>().sprite = productSO.cardsBackground;
@@ -138,7 +161,7 @@ public class ProductPanelManager : MonoBehaviour
         {
             float timer = productSO.initialTime / multiplierInitialTime - Mathf.FloorToInt((Time.time - _timerStart) % 60);
             progressBar.fillAmount = (Time.time - _timerStart) / (productSO.initialTime / multiplierInitialTime);
-            timerText.text = $"{timer} сек.";
+            timerText.text = $"{timer}";
         }
     }
     public void StartSellProduct ()
@@ -168,11 +191,11 @@ public class ProductPanelManager : MonoBehaviour
 
     private void _SellProduct ()
     {
-        shopManager.coins += _productRevenue;
+        shopManager.coins += productRevenue;
         _timer = false;
         productBackground.enabled = true;
         sellProductButton.interactable = true;
-        timerText.text = $"{productSO.initialTime / multiplierInitialTime} сек.";
+        timerText.text = $"{productSO.initialTime / multiplierInitialTime}";
     }
 
     public void ProductLevelUp ()
@@ -199,9 +222,9 @@ public class ProductPanelManager : MonoBehaviour
     private void RedrawThePanel ()
     {
         productLevelText.text = productInvestments.ToString();
-        timerText.text = $"{productSO.initialTime / multiplierInitialTime} сек.";
+        timerText.text = $"{productSO.initialTime / multiplierInitialTime}";
 
-        _productRevenue = _productInvestments * productSO.initialRevenue * multiplierProductRevenue;
+        productRevenue = _productInvestments * productSO.initialRevenue * multiplierProductRevenue;
 
 
         float totalCost = 0;
@@ -212,11 +235,12 @@ public class ProductPanelManager : MonoBehaviour
         }
         _upgradeCost = totalCost;
         NumberFormatter.FormatAndRedraw(_upgradeCost, costFloatText, costStringText);
-        NumberFormatter.FormatAndRedraw(_productRevenue, coinsPerSecondText);
+        NumberFormatter.FormatAndRedraw(productRevenue, coinsPerSecondText);
     }
 
     public void RedrawUpgradeButton ()
     {
+        Localizator.LocalizedText(buyNumberText, $"General.Buy", 0, $"\nx {_upgradesNumber}");
         upgradeButton.interactable = shopManager.coins >= _upgradeCost;
     }
 }

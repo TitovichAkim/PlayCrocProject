@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: dad7521e08faf904ba5a32b59360525d, type: 3}
   cardsBackground: {fileID: 21300000, guid: 1c30c88cea76e834aa72002e3164d454, type: 3}
   productName: BallOfYarn
-  initialCost: 60
-  costMultiplier: 1.15
+  initialCost: 50
+  costMultiplier: 1.08
   initialTime: 3
   initialRevenue: 60

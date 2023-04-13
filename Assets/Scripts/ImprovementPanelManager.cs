@@ -3,16 +3,34 @@ using UnityEngine.UI;
 
 public class ImprovementPanelManager: MonoBehaviour
 {
-    public ImprovementSO improvementSO;
+
     public ShopManager shopManager;
 
     public Image improvementIconImage;
+    public Image improvementBackgroundImage;
+    public Text improvementNameText;
     public Text improvementDescriptionText;
+    public Text improvementTypeText;
     public Text improvementCostText;
+    public Text buyButtonText;
     public Button buyButton;
+
+    public ImprovementSO _improvementSO;
 
     private bool _improvementState;
 
+    public ImprovementSO improvementSO
+    {
+        get
+        {
+            return (_improvementSO);
+        }
+        set
+        {
+            _improvementSO = value;
+            StartPanel();
+        }
+    }
     public bool improvementState
     {
         get
@@ -25,23 +43,17 @@ public class ImprovementPanelManager: MonoBehaviour
         }
     }
 
-    public void Start ()
+    public void StartPanel ()
     {
-        string improvementTypeText = "ОШИБКА";
-        switch(improvementSO.improvementsType)
-        {
-            case 0:
-                improvementTypeText = "Увеличивает доход";
-                break;
-            case 1:
-                improvementTypeText = "Сокращает время";
-                break;
-        }
-
         improvementIconImage.sprite = improvementSO.improvementsIcon;
-        improvementDescriptionText.text = $"{improvementSO.improvementsName} " +
-            $"\n{improvementTypeText} " +
-            $"\n в {improvementSO.improvementsValue} раз";
+
+        Localizator.LocalizedText(buyButtonText, $"General.Buy");
+        Localizator.LocalizedText(improvementNameText, $"ImprovementName.{improvementSO.improvementsName}");
+        Text[] descriptionTexts = { improvementDescriptionText, improvementTypeText };
+        for(int i = 0; i < descriptionTexts.Length; i++)
+        {
+            Localizator.LocalizedText(descriptionTexts[i], $"ImprovementDescription.{improvementSO.improvementsName}", i);
+        }
         NumberFormatter.FormatAndRedraw(improvementSO.improvementsCost, improvementCostText);
     }
 
