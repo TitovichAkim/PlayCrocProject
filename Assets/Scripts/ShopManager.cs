@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
     public GameObject improvementsPanel;
 
     public Text numbersOfCoinsFloatText;
-    public Text numbersOfCoinsstringText;
+   // public Text numbersOfCoinsstringText;
     public Text upgradesNumberText;
     public Image[] ProductIconsOnTheShelf;
 
@@ -33,7 +33,7 @@ public class ShopManager : MonoBehaviour
         set
         {
             _coins = value;
-            NumberFormatter.FormatAndRedraw(_coins, numbersOfCoinsFloatText, numbersOfCoinsstringText);
+            NumberFormatter.FormatAndRedraw(_coins, numbersOfCoinsFloatText);
             PlayerPrefs.SetFloat("Coin", _coins);
             _RedrawUpgradeButtons();
         }

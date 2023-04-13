@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fb655070bb5e0454a980a6e07d4c1dea, type: 3}
   cardsBackground: {fileID: 21300000, guid: 65bf22c9e8365e2468abfd71c3a94588, type: 3}
   productName: CarnivorousPlant
-  initialCost: 100000
-  costMultiplier: 1.12
+  initialCost: 120000
+  costMultiplier: 1.11
   initialTime: 24
   initialRevenue: 50000

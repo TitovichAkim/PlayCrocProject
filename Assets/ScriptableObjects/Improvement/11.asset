@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   improvementsIcon: {fileID: 21300000, guid: b65a8d87e7d472e4a8eb184e1436deae, type: 3}
   improvementsName: 11TimeX2VoodooDoll
-  improvementsCost: 300000000
+  improvementsCost: 50000000
   improvementsValue: 2
   improvementsType: 1
   improvementsTargetIndex: 5

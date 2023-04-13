@@ -69,9 +69,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 992389c64c310234ca1c16e4f0f9ffca, type: 3}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
@@ -79,8 +79,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "New \nText"
+    m_LineSpacing: 0.8
+  m_Text: "\u0422\u0443\u0442 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435. \u041E\u0447\u0435\u043D\u044C
+    \u0431\u043E\u043B\u044C\u0448\u043E\u0435"
 --- !u!114 &7974636417229324209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: -1
+  m_MinWidth: 0
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -402,6 +403,7 @@ MonoBehaviour:
   improvementDescriptionText: {fileID: 6283254894706809937}
   improvementTypeText: {fileID: 7123361476053243680}
   improvementCostText: {fileID: 5569894517475988288}
+  buyButtonText: {fileID: 5408202692246400743}
   buyButton: {fileID: 96007335227857422}
   _improvementSO: {fileID: 0}
 --- !u!1 &1224448032391954188
@@ -484,7 +486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "100.000.100.000\n\u0421\u041A\u0421\u0422\u041B\u041D"
+  m_Text: "999.000 \u0421\u041A\u0421\u0422\u041B\u041D"
 --- !u!114 &7105767276692678155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,18 +576,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 783980cf6f0fc9742abb9bb07d96b417, type: 3}
-    m_FontSize: 24
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
+    m_LineSpacing: 0.8
+  m_Text: "\u0422\u0443\u0442 \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435. \u041E\u0447\u0435\u043D\u044C
+    \u043C\u043D\u043E\u0433\u043E \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u044F"
 --- !u!114 &5594059547974134911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +729,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 425, y: 165}
+  m_SizeDelta: {x: 425, y: 184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1689867045518975847
 CanvasRenderer:
@@ -1016,18 +1019,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 783980cf6f0fc9742abb9bb07d96b417, type: 3}
-    m_FontSize: 24
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
+    m_LineSpacing: 0.8
+  m_Text: "\u0418 \u0442\u0443\u0442 \u0442\u043E\u0436\u0435 \u043E\u043E\u043E\u043E\u043E\u0447\u0435\u043D\u044C
+    \u043C\u043D\u043E\u0433\u043E"
 --- !u!114 &4635423752227333250
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   cardsBackground: {fileID: 21300000, guid: bcec418fc6d5b2941af155307cbed4cd, type: 3}
   productName: LovePotion
   initialCost: 8000
-  costMultiplier: 1.13
+  costMultiplier: 1.1
   initialTime: 12
   initialRevenue: 4200

@@ -4,19 +4,19 @@ using System.Text.RegularExpressions;
 
 public static class Localizator
 {
-    public static void LocalizedText (Text targetTextObject, string key, int num = 0)
+    public static void LocalizedText (Text targetTextObject, string key, int num = 0, string Insert0 = "")
     {
         if(PlayerPrefs.HasKey("GameLanguage"))
         {
             string GameLanguage = PlayerPrefs.GetString("GameLanguage");  //  RU/EN
-            targetTextObject.text = localized_text(key, GameLanguage, num);
+            targetTextObject.text = localized_text(key, GameLanguage, num, Insert0);
         }
         else
-        {  // если язык не выбран то русский по умолчанию
-            targetTextObject.text = localized_text(key, "RU", num);
+        {  // если язык не выбран то английский по умолчанию
+            targetTextObject.text = localized_text(key, "EN", num, Insert0);
         }
     }
-    private static string localized_text (string key, string lang, int num)
+    private static string localized_text (string key, string lang, int num, string Insert0 = "")
     {
         string[] fileKey = key.Split('.');
        // вытаскиваем из таблицы значение
@@ -31,11 +31,12 @@ public static class Localizator
             {
                 if(lang == "RU")
                 {
-                    return cuted_row[1].Replace("_", "\n").Split("\n")[num];
+
+                    return string.Format(cuted_row[1].Replace("_", "\n").Split("\n")[num], Insert0);
                 }
                 else if(lang == "EN")
                 {
-                    return cuted_row[2].Replace("_", "\n").Split("\n")[num];
+                    return string.Format(cuted_row[2].Replace("_", "\n").Split("\n")[num], Insert0);
                 }
                 break;
             }

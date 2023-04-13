@@ -30,7 +30,6 @@ public class WorldFactory:MonoBehaviour
 
     public async void AssembleShop ()
     {
-        CollectMenu();
 
         InitializeArrays();
 
@@ -40,7 +39,7 @@ public class WorldFactory:MonoBehaviour
 
         CollectImprovement();
 
-
+        CollectMenu();
 
         _ShopManager.StartShop();
     }
@@ -93,5 +92,6 @@ public class WorldFactory:MonoBehaviour
     public void CollectMenu ()
     {
         GameObject menu = Instantiate(menuPrefab);
+        menu.GetComponent<MenuManager>().shopManager = _ShopManager;
     }
 }

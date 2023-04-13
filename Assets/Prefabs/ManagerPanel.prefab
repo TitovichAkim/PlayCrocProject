@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -110.41937, y: -60.5}
-  m_SizeDelta: {x: 174.5888, y: 79}
+  m_AnchoredPosition: {x: -110.42, y: -60.5}
+  m_SizeDelta: {x: 174.59, y: 28.1604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1225057090040639671
 CanvasRenderer:
@@ -74,13 +74,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "100.000.100.000\n\u0421\u041A\u0421\u0422\u041B\u041D"
+  m_Text: "900.000 \u0421\u041A\u0421\u0422\u041B\u041D"
 --- !u!114 &1179489131691061446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   managerActionText: {fileID: 5656444588777932856}
   ManagerActionTargetText: {fileID: 768269333413420030}
   managerCostText: {fileID: 7464578733192081426}
+  buyButtonText: {fileID: 5926995335356988046}
   buyButton: {fileID: 1736198415876312679}
   _managerSO: {fileID: 0}
 --- !u!1 &1764889865411076132
@@ -397,17 +398,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 783980cf6f0fc9742abb9bb07d96b417, type: 3}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
+    m_BestFit: 1
+    m_MinSize: 0
     m_MaxSize: 30
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 0.6
   m_Text: "\u0422\u0443\u0442 \u0431\u0443\u0434\u0435\u0442 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E
     \u0442\u0435\u043A\u0441\u0442"
 --- !u!114 &8639796322933222360
@@ -575,17 +576,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 783980cf6f0fc9742abb9bb07d96b417, type: 3}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 140
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 30
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 0.6
   m_Text: "\u0418 \u0442\u0443\u0442 \u0442\u043E\u0436\u0435 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E
     \u0442\u0435\u043A\u0441\u0442..."
 --- !u!114 &6120170815331809302
@@ -679,11 +680,11 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 992389c64c310234ca1c16e4f0f9ffca, type: 3}
     m_FontSize: 40
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 3
+    m_BestFit: 1
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -858,17 +859,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 783980cf6f0fc9742abb9bb07d96b417, type: 3}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 140
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 30
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 0.6
   m_Text: "\u0418 \u0442\u0443\u0442 \u0442\u043E\u0436\u0435 \u043A\u0430\u043A\u043E\u0439-\u0442\u043E
     \u0442\u0435\u043A\u0441\u0442..."
 --- !u!114 &7748403962199244469
@@ -1087,7 +1088,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 425, y: 165}
+  m_SizeDelta: {x: 425, y: 184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1026464975251437326
 CanvasRenderer:

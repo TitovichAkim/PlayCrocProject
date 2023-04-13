@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8498ae953530a0742a22f28756663e69, type: 3}
   cardsBackground: {fileID: 21300000, guid: 17311568c89f9224b8140acdb6e390fd, type: 3}
   productName: TarotCards
-  initialCost: 3.738
+  initialCost: 374
   costMultiplier: 1.07
   initialTime: 0.6
   initialRevenue: 1

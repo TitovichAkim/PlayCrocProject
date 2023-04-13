@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   improvementsIcon: {fileID: 21300000, guid: 05842e398df641e4ca92ff9fb76ff48a, type: 3}
   improvementsName: 9TimeX2LovePotion
-  improvementsCost: 150000000
+  improvementsCost: 15000000
   improvementsValue: 2
   improvementsType: 1
   improvementsTargetIndex: 3

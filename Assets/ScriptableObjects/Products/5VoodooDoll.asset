@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a94c73515d1a82143bd8be46211284e8, type: 3}
   cardsBackground: {fileID: 21300000, guid: c32183d53053e0a4d8c0e494f90f83bb, type: 3}
   productName: VoodooDoll
-  initialCost: 1250000
-  costMultiplier: 1.11
-  initialTime: 96
-  initialRevenue: 640000
+  initialCost: 1000000
+  costMultiplier: 1.17
+  initialTime: 48
+  initialRevenue: 440000

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   improvementsIcon: {fileID: 21300000, guid: b445d39dcab9e9e4392f464a6e4f257d, type: 3}
   improvementsName: 2ProfitX2SpellBook
-  improvementsCost: 1000000
+  improvementsCost: 70000
   improvementsValue: 2
   improvementsType: 0
   improvementsTargetIndex: 2

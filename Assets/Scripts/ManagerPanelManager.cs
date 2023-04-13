@@ -12,6 +12,7 @@ public class ManagerPanelManager : MonoBehaviour
     public Text managerActionText;
     public Text ManagerActionTargetText;
     public Text managerCostText;
+    public Text buyButtonText;
     public Button buyButton;
 
     public ManagersSO _managerSO;
@@ -91,6 +92,7 @@ public class ManagerPanelManager : MonoBehaviour
 
     private void LocalisationTexts ()
     {
+        Localizator.LocalizedText(buyButtonText, $"General.Buy");
         Localizator.LocalizedText(managerNameText, $"ManagerName.{managerSO.managersName}");
         Text[] descriprionTexts = {managersDescriptionText, managerActionText, ManagerActionTargetText};
         for(int i = 0; i < descriprionTexts.Length; i++)

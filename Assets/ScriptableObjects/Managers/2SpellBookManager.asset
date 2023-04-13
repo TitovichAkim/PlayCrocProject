@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managersIcon: {fileID: 21300000, guid: eddd2740de138634c9fc70617ae4a2d3, type: 3}
   managersName: 2AutomaticSaleSpellBook
-  managersCost: 100000
+  managersCost: 80000

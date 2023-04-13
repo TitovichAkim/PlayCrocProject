@@ -6,7 +6,8 @@ public class LanguageChanger :MonoBehaviour
 {
     public Dropdown dropdown;
     public void Start ()
-    {
+    {// Не забыть удалить строку 10
+        PlayerPrefs.SetString("GameLanguage", "EN");
         switch(PlayerPrefs.GetString("GameLanguage"))
         {
             case "RU":

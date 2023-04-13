@@ -12,6 +12,7 @@ public class ImprovementPanelManager: MonoBehaviour
     public Text improvementDescriptionText;
     public Text improvementTypeText;
     public Text improvementCostText;
+    public Text buyButtonText;
     public Button buyButton;
 
     public ImprovementSO _improvementSO;
@@ -46,6 +47,7 @@ public class ImprovementPanelManager: MonoBehaviour
     {
         improvementIconImage.sprite = improvementSO.improvementsIcon;
 
+        Localizator.LocalizedText(buyButtonText, $"General.Buy");
         Localizator.LocalizedText(improvementNameText, $"ImprovementName.{improvementSO.improvementsName}");
         Text[] descriptionTexts = { improvementDescriptionText, improvementTypeText };
         for(int i = 0; i < descriptionTexts.Length; i++)
