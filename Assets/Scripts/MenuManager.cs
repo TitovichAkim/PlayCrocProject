@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
     }
     public void CollectTheReward ()
     {
-        timerText.text = $"You were not in the game: {$"{(int)currentTime.TotalHours}:{currentTime.TotalMinutes % 59:00}:{currentTime.TotalSeconds % 59:00}"}";
+        timerText.text = $"You were not in the game: {$"{(int)currentTime.TotalHours}:{currentTime.TotalMinutes % 60:00}:{currentTime.TotalSeconds % 60:00}"}";
 
 
         foreach (ProductPanelManager productPanelManager in shopManager.productPanelsArray)
